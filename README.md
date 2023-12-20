@@ -3,6 +3,21 @@ This repository is forked from https://github.com/miu200521358/mmd-auto-trace-3
 And I am NOT program author. The original author is [miu200521358](https://github.com/miu200521358/).
 Thank you for creating this tools!
 
+## Enviroment
+```
+CUDA:
+	nvcc: NVIDIA (R) Cuda compiler driver
+	Copyright (c) 2005-2020 NVIDIA Corporation
+	Built on Thu_Jun_11_22:26:38_PDT_2020
+	Cuda compilation tools, release 11.0, V11.0.194
+	Build cuda_11.0_bu.TC445_37.28540450_0
+
+CuDNN:
+	Executing: mnistCUDNN
+	cudnnGetVersion() : 8500 , CUDNN_VERSION from cudnn.h : 8500 (8.5.0)
+	Host compiler version : GCC 9.4.0
+```
+
 ## Setup
 ```
 conda create -n mat3 pip python=3.9
@@ -16,5 +31,5 @@ cd src/Alphapose
 python setup.py build install
 ```
 
-## Download model
-bash ./model_setup.sh
+## Downloading model
+`bash ./model_setup.sh`
