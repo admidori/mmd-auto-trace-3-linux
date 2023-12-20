@@ -1,0 +1,9 @@
+!!! Execute inside directory of src/ !!!
+
+!!!
+Before execute, Please activate conda environment:
+$ conda activate mat
+!!!
+
+Execute Scripts:
+$ python3.9 executor.py --video-file "$input_video_path" --process prepare,alphapose,multipose,posetriplet,mix,motion --verbose 20 --log-mode 0 --lang ja

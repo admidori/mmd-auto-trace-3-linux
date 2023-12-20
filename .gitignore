@@ -132,3 +132,4 @@ trace_model_*.pmx
 ckpts/
 src/exec2.bat
 *.zip
+data/

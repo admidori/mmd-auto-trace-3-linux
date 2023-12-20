@@ -1,0 +1,59 @@
+# Environment
+CUDA:
+	nvcc: NVIDIA (R) Cuda compiler driver
+	Copyright (c) 2005-2020 NVIDIA Corporation
+	Built on Thu_Jun_11_22:26:38_PDT_2020
+	Cuda compilation tools, release 11.0, V11.0.194
+	Build cuda_11.0_bu.TC445_37.28540450_0
+
+CuDNN:
+	Executing: mnistCUDNN
+	cudnnGetVersion() : 8500 , CUDNN_VERSION from cudnn.h : 8500 (8.5.0)
+	Host compiler version : GCC 9.4.0
+
+# Requirements
+You have to install requirements.txt
+pip install -r requirements.txt
+
+# Attention
+Before execute setup.py, Please read below:
+You have to rewrite many place.
+
+## src/alphapose/setup.py(1)
+'''
+I had the problem and I've been able to solve it by doing what @Fang-Haoshu said. There is an if statement that makes setup.py skip some module installations if you're on Windows.
+
+    Go to setup.py in your Alphapose folder.
+    On line 124, comment out the "if" statement.
+
+if platform.system() != 'Windows':
+..........ext_modules = [... 
+
+    Ensure you adjust the code block under the if statement (since you have removed the "if"). Make them one indent instead of two.
+'''
+(Reference: https://github.com/MVIG-SJTU/AlphaPose/issues/492)
+
+## src/alphapose/setup.py(2)
+On line about 160, comment-out or delete below:
+'''"opendr",'''
+
+## src/AlphaPose/alphapose/utils/roi_align/roi_align.py
+Comment-out or delete below sentence:
+'''from . import roi_align_cuda'''
+
+# Instalation
+- Follow official description: https://github.com/miu200521358/mmd-auto-trace-3
+
+- Add submodule
+'''
+git submodule add https://github.com/miu200521358/AlphaPose
+mv -f Alphapose src/
+git submodule add https://github.com/miu200521358/3D-Multi-Person-Pose MultiPose
+mv -f MultiPose src/
+git submodule add https://github.com/miu200521358/PoseTriplet PoseTriplet
+mv -f PoseTriplet src/
+
+'''
+
+- Download model using below command:
+'''bash model_setup.sh'''
